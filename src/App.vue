@@ -1,17 +1,17 @@
 <template>
   <v-app>
-    <HelloWorld/>
+    <AppCenter/>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import AppCenter from './components/AppCenter';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+      AppCenter: AppCenter,
   },
 
   data: () => ({
