@@ -1,11 +1,62 @@
 <template>
-  <v-container class="d-flex flex-wrap justify-space-between">
-    <div v-for="item in description" v-bind:key="item.id" class="pa-5">
-      {{ item.name }}
+  <v-container class="d-flex flex-wrap justify-center">
+    <div v-for="item in items" v-bind:key="item.id" class="pa-6">
+      <v-dialog
+          v-model="item.formIsOpen"
+          width="500"
+      >
+        <v-card>
+          <v-container>
+            <form>
+              <v-text-field
+                  v-model="name"
+                  label="ФИО"
+                  required
+              ></v-text-field>
+              <v-text-field
+                  :counter="11"
+                  hide-details
+                  single-line
+                  type="number"
+                  label="Номер телефона"
+                  required
+              ></v-text-field>
+
+              <v-text-field
+                  label="Почта"
+                  required
+              ></v-text-field>
+
+              <v-text-field
+                  label="Должность"
+                  required
+              ></v-text-field>
+
+              <v-text-field
+                  label="Компания"
+                  required
+              ></v-text-field>
+              <v-checkbox
+                  value="1"
+                  label="Не против поделиться данными :3"
+                  type="checkbox"
+                  required
+              ></v-checkbox>
+
+              <v-btn
+                  class="mr-4"
+                  type="submit"
+              >
+                отправить
+              </v-btn>
+            </form>
+          </v-container>
+        </v-card>
+      </v-dialog>
       <v-card
-          :loading="loading"
           class="my-12"
           max-width="374"
+          rounded
       >
         <template slot="progress">
           <v-progress-linear
@@ -16,65 +67,52 @@
         </template>
 
         <v-img
-            height="250"
-            src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+            max-width="auto"
+            :src="item.imageRef"
         ></v-img>
 
-        <v-card-title>Cafe Badilico</v-card-title>
+        <v-card-title
+            align="center"
+            class="custom_font_size"
+        >{{ item.name }}
+        </v-card-title>
 
-        <v-card-text>
-          <v-row
-              align="center"
-              class="mx-0"
-          >
-            <v-rating
-                :value="4.5"
-                color="amber"
-                dense
-                half-increments
-                readonly
-                size="14"
-            ></v-rating>
-
-            <div class="grey--text ms-4">
-              4.5 (413)
-            </div>
-          </v-row>
-
-          <div class="my-4 text-subtitle-1">
-            $ • Italian, Cafe
-          </div>
-
-          <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
+        <v-card-text
+            class="custom_font_size_post"
+        >
+          <div>Москва, Россия.</div>
         </v-card-text>
 
         <v-divider class="mx-4"></v-divider>
 
-        <v-card-title>Tonight's availability</v-card-title>
+        <v-card-title>Место и дата проведения:</v-card-title>
 
         <v-card-text>
-          <v-chip-group
-              active-class="deep-purple accent-4 white--text"
-              column
-              v-model="selection"
-          >
-            <v-chip>5:30PM</v-chip>
-
-            <v-chip>7:30PM</v-chip>
-
-            <v-chip>8:00PM</v-chip>
-
-            <v-chip>9:00PM</v-chip>
-          </v-chip-group>
+          <a :href="item.place.link"
+             target="_blank">
+            {{ item.place.title }}
+          </a>
         </v-card-text>
-
+        <v-card-text class="custom_font_size_post">
+          {{ item.date }}
+        </v-card-text>
         <v-card-actions>
           <v-btn
-              @click="reserve"
-              color="deep-purple lighten-2"
+              color="deep-purple"
               text
+              target="_blank"
+              :href=item.meetupPlan
           >
-            Reserve
+            Программа
+          </v-btn>
+          <v-spacer/>
+          <v-btn
+              color="blue"
+              text
+              target="_blank"
+              @click="item.formIsOpen = true"
+          >
+            Зарегистрироваться
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -83,39 +121,94 @@
 </template>
 
 <script>
-  export default {
-      name: 'AppCenter',
-
-      data: () => ({
-          description: [
-              {
-                  name: 'vuetify-loader',
-              },
-              {
-                  name: 'vuetify-loader1',
-              },
-              {
-                  name: 'vuetify-loader2',
-              },
-              {
-                  name: 'vuetify-loader',
-              },
-              {
-                  name: 'vuetify-loader1',
-              },
-              {
-                  name: 'vuetify-loader2',
-              },
-              {
-                  name: 'vuetify-loader',
-              },
-              {
-                  name: 'vuetify-loader1',
-              },
-              {
-                  name: 'vuetify-loader2',
-              },
-          ],
-    }),
-  }
+export default {
+  name: 'AppCenter',
+  data: () => ({
+    items: [
+      {
+        formIsOpen: false,
+        name: 'Управление корпоративным парком в России 2022 г.',
+        imageRef: 'https://all-events.ru/upload/iblock/689/6897490bedd940b3915e3fca547406be.png',
+        place:
+            {
+              title: 'Отель Империал Парк отель & SPA',
+              link: 'https://www.ya.ru',
+            },
+        date: '27 января 2022 г.',
+        meetupPlan: '/test.pdf',
+      }, {
+        formIsOpen: false,
+        name: 'Управление корпоративными финансами в России 2022 г.',
+        imageRef: 'https://all-events.ru/upload/iblock/f91/f9185d03d0af6420ca55b7ff4bbeef89.png',
+        place:
+            {
+              title: 'Отель Арарат Парк Хаятт',
+              link: 'https://www.ya.ru',
+            },
+        date: '24 марта 2022 г.',
+        meetupPlan: '/test.pdf'
+      }, {
+        formIsOpen: false,
+        name: 'Управление персоналом в России 2022 г.',
+        imageRef: 'https://all-events.ru/upload/webp/iblock/b47/sdpohqfypup6c0f45van00lbggpb8qce.webp',
+        place:
+            {
+              title: 'Отель Арарат Парк Хаятт',
+              link: 'https://www.ya.ru',
+            },
+        date: '19 мая 2022 г.',
+        meetupPlan: '/test.pdf'
+      }, {
+        formIsOpen: false,
+        name: 'Управление информационными технологиями в России 2022 г.',
+        imageRef: 'https://all-events.ru/upload/iblock/677/677295e7fe03c74c44f966d571eb4e9d.png',
+        place:
+            {
+              title: 'Отель Арарат Парк Хаятт',
+              link: 'https://www.ya.ru',
+            },
+        date: '02 сентября 2022 г.',
+        meetupPlan: '/test.pdf'
+      }, {
+        formIsOpen: false,
+        name: 'Управление корпоративным правом в России 2022 г.',
+        imageRef: 'https://all-events.ru/upload/iblock/8be/t6f71h8w9s0kcmkdykagkghzd2i16682.png',
+        place:
+            {
+              title: 'Отель Империал Парк отель & SPA',
+              link: 'https://www.ya.ru',
+            },
+        date: '06 октября 2022 г.',
+        meetupPlan: '/test.pdf'
+      }, {
+        formIsOpen: false,
+        name: 'Управление производством в России 2022 г.',
+        imageRef: 'https://avatarko.ru/img/kartinka/33/multfilm_lyagushka_32117.jpg',
+        place:
+            {
+              title: 'Отель Империал Парк отель & SPA',
+              link: 'https://www.ya.ru',
+            },
+        date: '08 декабря 2022 г.',
+        meetupPlan: '/test.pdf'
+      },
+    ],
+  }),
+}
 </script>
+
+<style lang="scss">
+.custom_font_size {
+  font-size: large !important;
+  word-break: normal !important;
+}
+
+.custom_font_size_post {
+  font-size: medium !important;
+}
+
+.form_container {
+  opacity: 100% !important;
+}
+</style>
+
