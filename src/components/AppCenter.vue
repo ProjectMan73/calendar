@@ -7,34 +7,53 @@
       >
         <v-card>
           <v-container>
-            <form>
+            <form ref="form" @submit.prevent="sendEmail(item)">
+
               <v-text-field
-                  v-model="name"
+                  v-model="forForMailSender.conference"
+                  name="conference"
+                  :disabled="item.formIsOpen"
+              ></v-text-field>
+
+              <v-text-field
+                  v-model="forForMailSender.fio"
+                  name="fio"
                   label="ФИО"
                   required
               ></v-text-field>
+
               <v-text-field
+                  v-model="forForMailSender.phone"
+                  name="phone"
                   :counter="11"
-                  hide-details
-                  single-line
-                  type="number"
                   label="Номер телефона"
                   required
               ></v-text-field>
 
               <v-text-field
+                  v-model="forForMailSender.email"
+                  name="email"
                   label="Почта"
                   required
               ></v-text-field>
 
               <v-text-field
+                  v-model="forForMailSender.position"
+                  name="position"
                   label="Должность"
                   required
               ></v-text-field>
 
               <v-text-field
+                  v-model="forForMailSender.company"
+                  name="company"
                   label="Компания"
                   required
+              ></v-text-field>
+              <v-text-field
+                  v-model="forForMailSender.message"
+                  name="message"
+                  label="Сообщение"
               ></v-text-field>
               <v-checkbox
                   value="1"
@@ -109,8 +128,7 @@
           <v-btn
               color="blue"
               text
-              target="_blank"
-              @click="item.formIsOpen = true"
+              @click="item.formIsOpen = true; forForMailSender.conference = item.name"
           >
             Зарегистрироваться
           </v-btn>
@@ -121,9 +139,20 @@
 </template>
 
 <script>
+import emailjs from 'emailjs-com';
+
 export default {
   name: 'AppCenter',
   data: () => ({
+    forForMailSender: {
+      fio: '',
+      phone: '',
+      email: '',
+      position: '',
+      company: '',
+      message: '',
+      conference: ''
+    },
     items: [
       {
         formIsOpen: false,
@@ -194,6 +223,24 @@ export default {
       },
     ],
   }),
+  methods: {
+    sendEmail(item) {
+      console.log("Send started")
+      const form = this.$refs.form[0];
+      item.formIsOpen = false;
+      console.log(this.forForMailSender)
+      this.$nextTick(() => {
+            emailjs.sendForm('service_r73ngfb', 'template_bjwlv3f', form, 'user_BbgeRZDLKK4r8lROZIEkx')
+                .then((result) => {
+                  console.log('SUCCESS!', result.text);
+                }, (error) => {
+                  console.log('FAILED...', error.text);
+                });
+          }
+      )
+
+    }
+  }
 }
 </script>
 
