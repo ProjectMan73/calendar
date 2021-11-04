@@ -230,7 +230,7 @@ export default {
       item.formIsOpen = false;
       console.log(this.forForMailSender)
       this.$nextTick(() => {
-            emailjs.sendForm('service_r73ngfb', 'template_bjwlv3f', form, 'user_BbgeRZDLKK4r8lROZIEkx')
+            emailjs.sendForm(process.env.SERVICEID, process.env.TEMPLATEID, form, process.env.USERID)
                 .then((result) => {
                   console.log('SUCCESS!', result.text);
                 }, (error) => {
