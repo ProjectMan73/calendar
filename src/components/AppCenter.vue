@@ -156,15 +156,15 @@ export default {
     items: [
       {
         formIsOpen: false,
-        name: 'Управление корпоративным парком в России 2022 г.',
+        name: 'Управление корпоративным автопарком в России 2022 г.',
         imageRef: 'https://all-events.ru/upload/iblock/689/6897490bedd940b3915e3fca547406be.png',
         place:
             {
               title: 'Отель Империал Парк отель & SPA',
-              link: 'https://www.ya.ru',
+              link: 'https://www.imperialhotel.ru/',
             },
         date: '27 января 2022 г.',
-        meetupPlan: '/test.pdf',
+        meetupPlan: '/Управление корпоративным автопарком в России 2021.pdf',
       }, {
         formIsOpen: false,
         name: 'Управление корпоративными финансами в России 2022 г.',
@@ -172,10 +172,10 @@ export default {
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
-              link: 'https://www.ya.ru',
+              link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '24 марта 2022 г.',
-        meetupPlan: '/test.pdf'
+        meetupPlan: '/Управление корпоративными финансами в России 2021.pdf'
       }, {
         formIsOpen: false,
         name: 'Управление персоналом в России 2022 г.',
@@ -183,10 +183,10 @@ export default {
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
-              link: 'https://www.ya.ru',
+              link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '19 мая 2022 г.',
-        meetupPlan: '/test.pdf'
+        meetupPlan: '/Управление персоналом в России 2021(1).pdf'
       }, {
         formIsOpen: false,
         name: 'Управление информационными технологиями в России 2022 г.',
@@ -194,10 +194,10 @@ export default {
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
-              link: 'https://www.ya.ru',
+              link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '02 сентября 2022 г.',
-        meetupPlan: '/test.pdf'
+        meetupPlan: '/Управление информационными технологиями в России 2021.pdf'
       }, {
         formIsOpen: false,
         name: 'Управление корпоративным правом в России 2022 г.',
@@ -205,21 +205,21 @@ export default {
         place:
             {
               title: 'Отель Империал Парк отель & SPA',
-              link: 'https://www.ya.ru',
+              link: 'https://www.imperialhotel.ru/',
             },
         date: '06 октября 2022 г.',
-        meetupPlan: '/test.pdf'
+        meetupPlan: '/Управление корпоративным правом в России 2021.pdf'
       }, {
         formIsOpen: false,
         name: 'Управление производством в России 2022 г.',
-        imageRef: 'https://avatarko.ru/img/kartinka/33/multfilm_lyagushka_32117.jpg',
+        imageRef: '',
         place:
             {
               title: 'Отель Империал Парк отель & SPA',
-              link: 'https://www.ya.ru',
+              link: 'https://www.imperialhotel.ru/',
             },
         date: '08 декабря 2022 г.',
-        meetupPlan: '/test.pdf'
+        meetupPlan: ''
       },
     ],
   }),
@@ -230,7 +230,7 @@ export default {
       item.formIsOpen = false;
       console.log(this.forForMailSender)
       this.$nextTick(() => {
-            emailjs.sendForm(process.env.SERVICEID, process.env.TEMPLATEID, form, process.env.USERID)
+            emailjs.sendForm('service_r73ngfb', 'template_bjwlv3f', form, 'user_BbgeRZDLKK4r8lROZIEkx')
                 .then((result) => {
                   console.log('SUCCESS!', result.text);
                 }, (error) => {
