@@ -56,11 +56,29 @@
                   label="Сообщение"
               ></v-text-field>
               <v-checkbox
-                  value="1"
-                  label="Не против поделиться данными :3"
                   type="checkbox"
+                  value="1"
                   required
-              ></v-checkbox>
+              >
+                <template v-slot:label>
+                  <div>
+                    Даю согласие на
+                    <v-tooltip bottom>
+                      <template v-slot:activator="{ on }">
+                        <a
+                            target="_blank"
+                            href="https://legalacts.ru/doc/152_FZ-o-personalnyh-dannyh/glava-2/statja-6/"
+                            @click.stop
+                            v-on="on"
+                        >
+                          обработку персональных данных.
+                        </a>
+                      </template>
+                      Открыть в новом окне
+                    </v-tooltip>
+                  </div>
+                </template>
+              </v-checkbox>
 
               <v-btn
                   class="mr-4"
@@ -120,7 +138,7 @@
               color="deep-purple"
               text
               target="_blank"
-              :href=item.meetupPlan
+              :href="item.meetupPlan"
           >
             Программа
           </v-btn>
@@ -157,14 +175,14 @@ export default {
       {
         formIsOpen: false,
         name: 'Управление корпоративным автопарком в России 2022 г.',
-        imageRef: 'https://all-events.ru/upload/iblock/689/6897490bedd940b3915e3fca547406be.png',
+        imageRef: require('../assets/avtoparks.png'),
         place:
             {
               title: 'Отель Империал Парк отель & SPA',
               link: 'https://www.imperialhotel.ru/',
             },
-        date: '27 января 2022 г.',
-        meetupPlan: '/Управление корпоративным автопарком в России 2021.pdf',
+          date: '27 января 2022 г.',
+          meetupPlan: '../Управление корпоративными финансами в России 2021.pdf',
       }, {
         formIsOpen: false,
         name: 'Управление корпоративными финансами в России 2022 г.',
