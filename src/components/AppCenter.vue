@@ -182,7 +182,7 @@ export default {
               link: 'https://www.imperialhotel.ru/',
             },
           date: '27 января 2022 г.',
-          meetupPlan: '../Управление корпоративными финансами в России 2021.pdf',
+          meetupPlan: './Управление корпоративным автопарком в России 2021.pdf',
       }, {
         formIsOpen: false,
         name: 'Управление корпоративными финансами в России 2022 г.',
@@ -193,7 +193,7 @@ export default {
               link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '24 марта 2022 г.',
-        meetupPlan: '/Управление корпоративными финансами в России 2021.pdf'
+        meetupPlan: './Управление корпоративными финансами в России 2021.pdf'
       }, {
         formIsOpen: false,
         name: 'Управление персоналом в России 2022 г.',
@@ -204,7 +204,7 @@ export default {
               link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '19 мая 2022 г.',
-        meetupPlan: '/Управление персоналом в России 2021(1).pdf'
+        meetupPlan: './Управление персоналом в России 2021(1).pdf'
       }, {
         formIsOpen: false,
         name: 'Управление информационными технологиями в России 2022 г.',
@@ -215,7 +215,7 @@ export default {
               link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '02 сентября 2022 г.',
-        meetupPlan: '/Управление информационными технологиями в России 2021.pdf'
+        meetupPlan: './Управление информационными технологиями в России 2021.pdf'
       }, {
         formIsOpen: false,
         name: 'Управление корпоративным правом в России 2022 г.',
@@ -226,7 +226,7 @@ export default {
               link: 'https://www.imperialhotel.ru/',
             },
         date: '06 октября 2022 г.',
-        meetupPlan: '/Управление корпоративным правом в России 2021.pdf'
+        meetupPlan: './Управление корпоративным правом в России 2021.pdf'
       }, {
         formIsOpen: false,
         name: 'Управление производством в России 2022 г.',
