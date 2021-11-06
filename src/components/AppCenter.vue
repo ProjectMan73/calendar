@@ -1,9 +1,10 @@
 <template>
   <v-container class="d-flex flex-wrap justify-center">
-    <div v-for="item in items" v-bind:key="item.id" class="pa-6">
+    <div v-for="item in items" v-bind:key="item.id" class="pa-3">
       <v-dialog
           v-model="item.formIsOpen"
           width="500"
+
       >
         <v-card>
           <v-container>
@@ -91,9 +92,10 @@
         </v-card>
       </v-dialog>
       <v-card
-          class="my-12"
+          class="my-12 pa-3"
           max-width="374"
           rounded
+
       >
         <template slot="progress">
           <v-progress-linear
@@ -133,24 +135,38 @@
         <v-card-text class="custom_font_size_post">
           {{ item.date }}
         </v-card-text>
-        <v-card-actions>
+        <v-card-subtitle>
+        <v-btn
+            text
+            target="_blank"
+            :href="item.video"
+        >
+          <v-icon
+              color="red"
+              elevation="12"
+              tile
+          >
+            mdi-youtube
+          </v-icon>
+          Видео-отчет
+        </v-btn>
           <v-btn
               color="deep-purple"
               text
               target="_blank"
               :href="item.meetupPlan"
           >
-            Программа
+            {{item.status}}
           </v-btn>
-          <v-spacer/>
           <v-btn
+              class="custom_btn"
               color="blue"
               text
               @click="item.formIsOpen = true; forForMailSender.conference = item.name"
           >
             Зарегистрироваться
           </v-btn>
-        </v-card-actions>
+        </v-card-subtitle>
       </v-card>
     </div>
   </v-container>
@@ -158,6 +174,7 @@
 
 <script>
 import emailjs from 'emailjs-com';
+import '@mdi/font/css/materialdesignicons.css'
 
 export default {
   name: 'AppCenter',
@@ -183,6 +200,8 @@ export default {
             },
           date: '27 января 2022 г.',
           meetupPlan: './Управление корпоративным автопарком в России 2021.pdf',
+          status: 'Программа мероприятия',
+          video: 'https://www.youtube.com/watch?v=xKycP6HbS5c&t'
       }, {
         formIsOpen: false,
         name: 'Управление корпоративными финансами в России 2022 г.',
@@ -193,7 +212,9 @@ export default {
               link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '24 марта 2022 г.',
-        meetupPlan: './Управление корпоративными финансами в России 2021.pdf'
+        meetupPlan: './Управление корпоративными финансами в России 2021.pdf',
+        status: 'Программа мероприятия 2021г.',
+        video: 'https://www.youtube.com/watch?v=IRPXw6WY-uU&t'
       }, {
         formIsOpen: false,
         name: 'Управление персоналом в России 2022 г.',
@@ -204,7 +225,9 @@ export default {
               link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '19 мая 2022 г.',
-        meetupPlan: './Управление персоналом в России 2021(1).pdf'
+        meetupPlan: './Управление персоналом в России 2021(1).pdf',
+        status: 'Программа мероприятия 2021г.',
+        video: 'https://www.youtube.com/watch?v=sRe6qB8hYZo&t'
       }, {
         formIsOpen: false,
         name: 'Управление информационными технологиями в России 2022 г.',
@@ -215,7 +238,9 @@ export default {
               link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '02 сентября 2022 г.',
-        meetupPlan: './Управление информационными технологиями в России 2021.pdf'
+        meetupPlan: './Управление информационными технологиями в России 2021.pdf',
+        status: 'Программа мероприятия 2021г.',
+        video: 'https://www.youtube.com/watch?v=ib1aj-oHXUE&t'
       }, {
         formIsOpen: false,
         name: 'Управление корпоративным правом в России 2022 г.',
@@ -226,7 +251,8 @@ export default {
               link: 'https://www.imperialhotel.ru/',
             },
         date: '06 октября 2022 г.',
-        meetupPlan: './Управление корпоративным правом в России 2021.pdf'
+        meetupPlan: './Управление корпоративным правом в России 2021.pdf',
+        status: 'Программа мероприятия 2021г.'
       }, {
         formIsOpen: false,
         name: 'Управление производством в России 2022 г.',
@@ -237,7 +263,8 @@ export default {
               link: 'https://www.imperialhotel.ru/',
             },
         date: '08 декабря 2022 г.',
-        meetupPlan: ''
+        meetupPlan: '',
+        status: 'Программа мероприятия 2021г.'
       },
     ],
   }),
@@ -274,6 +301,9 @@ export default {
 
 .form_container {
   opacity: 100% !important;
+}
+.custom_btn{
+  letter-spacing: .7px !important;
 }
 </style>
 
