@@ -23,13 +23,15 @@
                   required
               ></v-text-field>
 
-              <v-text-field
+              <vue-tel-input-vuetify
                   v-model="forForMailSender.phone"
+                  placeholder=""
+                  :preferredCountries="['ru', 'sa']"
                   name="phone"
-                  :counter="11"
+                  maxLen="11"
                   label="Номер телефона"
                   required
-              ></v-text-field>
+              ></vue-tel-input-vuetify>
 
               <v-text-field
                   v-model="forForMailSender.email"
@@ -176,7 +178,7 @@
 import emailjs from 'emailjs-com';
 import '@mdi/font/css/materialdesignicons.css'
 
-export default {
+export default{
   name: 'AppCenter',
   data: () => ({
     forForMailSender: {
@@ -284,6 +286,11 @@ export default {
           }
       )
 
+    },
+    numberRule: v  => {
+      if (!v.trim()) return true;
+      if (!isNaN(parseFloat(v)) && v >= 7 && v <= 99999999999) return true;
+      return 'Номер с 8';
     }
   }
 }

@@ -11,7 +11,7 @@
       <v-card-title class="teal">
         <v-title
             class="custom_font_size"
-        >Будем рады видеть Вас на мероприятии!</v-title>
+        >Будем рады видеть вас на мероприятии!</v-title>
 
         <v-spacer></v-spacer>
 
