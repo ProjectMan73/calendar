@@ -10,6 +10,6 @@ Vue.use(VueTelInputVuetify, {
 new Vue({
   vuetify,
   render: (h) => h(App),
-}).$mount("App");
+}).$mount("#app");
 
 
