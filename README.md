@@ -1,4 +1,4 @@
-# calendar
+# calendar for CG Conferences
 
 ## Project setup
 ```
