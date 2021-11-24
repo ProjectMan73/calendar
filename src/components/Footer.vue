@@ -17,7 +17,7 @@
 
         <v-btn
             target="_blank"
-            href="https://www.linkedin.com/in/stanislav-bolshakov-47328820b/"
+            href="https://www.linkedin.com/company/cgconferences/"
             dark
             icon
         >

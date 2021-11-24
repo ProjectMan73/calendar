@@ -249,8 +249,8 @@ export default{
         imageRef: 'https://all-events.ru/upload/iblock/8be/t6f71h8w9s0kcmkdykagkghzd2i16682.png',
         place:
             {
-              title: 'Отель Империал Парк отель & SPA',
-              link: 'https://www.imperialhotel.ru/',
+              title: 'Отель Арарат Парк Хаятт',
+              link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '06 октября 2022 г.',
         meetupPlan: './Управление корпоративным правом в России 2021.pdf',
@@ -261,8 +261,8 @@ export default{
         imageRef: '',
         place:
             {
-              title: 'Отель Империал Парк отель & SPA',
-              link: 'https://www.imperialhotel.ru/',
+              title: 'Отель Арарат Парк Хаятт',
+              link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '08 декабря 2022 г.',
         meetupPlan: '',
