@@ -142,6 +142,7 @@
             text
             target="_blank"
             :href="item.video"
+            :disabled="item.disable == 1"
         >
           <v-icon
               color="red"
@@ -157,6 +158,7 @@
               text
               target="_blank"
               :href="item.meetupPlan"
+              :disabled="item.disable == 1"
           >
             {{item.status}}
           </v-btn>
@@ -245,6 +247,7 @@ export default{
         video: 'https://www.youtube.com/watch?v=ib1aj-oHXUE&t'
       }, {
         formIsOpen: false,
+        disable: 0,
         name: 'Управление корпоративным правом в России 2022 г.',
         imageRef: 'https://all-events.ru/upload/iblock/8be/t6f71h8w9s0kcmkdykagkghzd2i16682.png',
         place:
@@ -254,19 +257,23 @@ export default{
             },
         date: '06 октября 2022 г.',
         meetupPlan: './Управление корпоративным правом в России 2021.pdf',
-        status: 'Программа мероприятия 2021г.'
+        status: 'Программа мероприятия 2021г.',
+        video: 'https://www.youtube.com/watch?v=Xgiej0-WZyM&t',
       }, {
         formIsOpen: false,
+        disable: 1,
         name: 'Управление производством в России 2022 г.',
-        imageRef: '',
+        imageRef: require('../assets/Manufacturing.png'),
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
               link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '08 декабря 2022 г.',
-        meetupPlan: '',
-        status: 'Программа мероприятия 2021г.'
+        meetupPlan: './Управление корпоративным правом в России 2021.pdf',
+        status: 'Программа мероприятия',
+        video: 'https://www.youtube.com/watch?v=Xgiej0-WZyM&t'
+
       },
     ],
   }),
