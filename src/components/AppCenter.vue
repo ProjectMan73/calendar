@@ -203,7 +203,7 @@ export default{
               link: 'https://www.imperialhotel.ru/',
             },
           date: '27 января 2022 г.',
-          meetupPlan: './Управление корпоративным автопарком в России 2021.pdf',
+          meetupPlan: './Управление корпоративным автопарком в России 2022.pdf',
           status: 'Программа мероприятия',
           video: 'https://www.youtube.com/watch?v=xKycP6HbS5c&t'
       }, {
