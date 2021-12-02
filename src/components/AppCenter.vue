@@ -4,7 +4,6 @@
       <v-dialog
           v-model="item.formIsOpen"
           width="500"
-
       >
         <v-card>
           <v-container>
@@ -25,8 +24,9 @@
 
               <vue-tel-input-vuetify
                   v-model="forForMailSender.phone"
+                  :defaultCountry='ru'
                   placeholder=""
-                  :preferredCountries="['ru', 'sa']"
+                  :preferredCountries="['ru']"
                   name="phone"
                   maxLen="11"
                   label="Номер телефона"
@@ -94,7 +94,7 @@
         </v-card>
       </v-dialog>
       <v-card
-          class="my-12 pa-3"
+          class="card my-12 pa-3"
           max-width="374"
           rounded
 
@@ -315,9 +315,14 @@ export default{
 
 .form_container {
   opacity: 100% !important;
+
 }
 .custom_btn{
   letter-spacing: .7px !important;
+}
+.card{
+  background-color: rgba(20, 23, 19, 0.05) !important;
+  color: rgba(0,0,0,.87) !important;
 }
 </style>
 
