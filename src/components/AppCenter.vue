@@ -196,7 +196,7 @@ export default{
       {
         formIsOpen: false,
         name: 'Управление корпоративным автопарком в России 2022 г.',
-        imageRef: require('../assets/avtoparks.png'),
+        imageRef: require('../assets/Fleet.png'),
         place:
             {
               title: 'Отель Империал Парк отель & SPA',
@@ -209,7 +209,7 @@ export default{
       }, {
         formIsOpen: false,
         name: 'Управление корпоративными финансами в России 2022 г.',
-        imageRef: 'https://all-events.ru/upload/iblock/f91/f9185d03d0af6420ca55b7ff4bbeef89.png',
+        imageRef: require('../assets/Finance.png'),
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
@@ -222,7 +222,7 @@ export default{
       }, {
         formIsOpen: false,
         name: 'Управление персоналом в России 2022 г.',
-        imageRef: 'https://all-events.ru/upload/webp/iblock/b47/sdpohqfypup6c0f45van00lbggpb8qce.webp',
+        imageRef: require('../assets/Personal.png'),
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
@@ -235,7 +235,7 @@ export default{
       }, {
         formIsOpen: false,
         name: 'Управление информационными технологиями в России 2022 г.',
-        imageRef: 'https://all-events.ru/upload/iblock/677/677295e7fe03c74c44f966d571eb4e9d.png',
+        imageRef: require('../assets/InfoTech.png'),
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
@@ -249,7 +249,7 @@ export default{
         formIsOpen: false,
         disable: 0,
         name: 'Управление корпоративным правом в России 2022 г.',
-        imageRef: 'https://all-events.ru/upload/iblock/8be/t6f71h8w9s0kcmkdykagkghzd2i16682.png',
+        imageRef: require('../assets/Pravo.png'),
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
