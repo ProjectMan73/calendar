@@ -8,7 +8,7 @@
         :wind="0"
         :opacity="0.8"
         :swing="1"
-        :image="require('../assets/snow.png')"
+        image="/images/snow.png"
         :zIndex="null"
         :resize="true"
         color="black"
@@ -213,7 +213,7 @@ export default{
       {
         formIsOpen: false,
         name: 'Управление корпоративным автопарком в России 2022 г.',
-        imageRef: require('../assets/Fleet.png'),
+        imageRef: '/images/Fleet.webp',
         place:
             {
               title: 'Отель Империал Парк отель & SPA',
@@ -226,7 +226,7 @@ export default{
       }, {
         formIsOpen: false,
         name: 'Управление корпоративными финансами в России 2022 г.',
-        imageRef: require('../assets/Finance.png'),
+        imageRef: '/images/Finance.webp',
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
@@ -239,7 +239,7 @@ export default{
       }, {
         formIsOpen: false,
         name: 'Управление персоналом в России 2022 г.',
-        imageRef: require('../assets/Personal.png'),
+        imageRef: '/images/Personal.webp',
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
@@ -252,7 +252,7 @@ export default{
       }, {
         formIsOpen: false,
         name: 'Управление информационными технологиями в России 2022 г.',
-        imageRef: require('../assets/InfoTech.png'),
+        imageRef: '/images/InfoTech.webp',
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
@@ -266,7 +266,7 @@ export default{
         formIsOpen: false,
         disable: 0,
         name: 'Управление корпоративным правом в России 2022 г.',
-        imageRef: require('../assets/Pravo.png'),
+        imageRef: '/images/Pravo.webp',
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
@@ -280,7 +280,7 @@ export default{
         formIsOpen: false,
         disable: 1,
         name: 'Управление производством в России 2022 г.',
-        imageRef: require('../assets/Manufacturing.png'),
+        imageRef: '/images/Manufacturing.webp',
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
