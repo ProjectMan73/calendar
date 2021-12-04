@@ -1,5 +1,18 @@
 <template>
   <v-container class="d-flex flex-wrap justify-center">
+    <Snowf
+        class="snows"
+        :amount="50"
+        :size="10"
+        :speed="1.5"
+        :wind="0"
+        :opacity="0.8"
+        :swing="1"
+        :image="require('../assets/snow.png')"
+        :zIndex="null"
+        :resize="true"
+        color="black"
+    />
     <div v-for="item in items" v-bind:key="item.id" class="pa-3">
       <v-dialog
           v-model="item.formIsOpen"
@@ -179,9 +192,13 @@
 <script>
 import emailjs from 'emailjs-com';
 import '@mdi/font/css/materialdesignicons.css'
+import Snowf from 'vue-snowf';
 
 export default{
   name: 'AppCenter',
+  components:{
+    Snowf
+  },
   data: () => ({
     forForMailSender: {
       fio: '',
@@ -323,6 +340,10 @@ export default{
 .card{
   background-color: rgba(20, 23, 19, 0.05) !important;
   color: rgba(0,0,0,.87) !important;
+}
+.snows{
+  z-index: 1 !important;
+  pointer-events: none !important;
 }
 </style>
 
