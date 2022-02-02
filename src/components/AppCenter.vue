@@ -1,25 +1,12 @@
 <template>
   <v-container class="d-flex flex-wrap justify-center">
-    <Snowf
-        class="snows"
-        :amount="50"
-        :size="10"
-        :speed="1.5"
-        :wind="0"
-        :opacity="0.8"
-        :swing="1"
-        :image="require('../assets/snow.png')"
-        :zIndex="null"
-        :resize="true"
-        color="black"
-    />
     <div v-for="item in items" v-bind:key="item.id" class="pa-3">
       <v-dialog
           v-model="item.formIsOpen"
           width="500"
       >
         <v-card>
-          <v-container>
+          <v-container class="suc_container">
             <form ref="form" @submit.prevent="sendEmail(item)">
 
               <v-text-field
@@ -30,6 +17,7 @@
 
               <v-text-field
                   v-model="forForMailSender.fio"
+                  :rules= "[rules.required_fio]"
                   name="fio"
                   label="ФИО"
                   required
@@ -40,6 +28,7 @@
                   :defaultCountry='ru'
                   placeholder=""
                   :preferredCountries="['ru']"
+                  :rules= "[rules.required_phone, rules.mobile]"
                   name="phone"
                   maxLen="11"
                   label="Номер телефона"
@@ -48,6 +37,7 @@
 
               <v-text-field
                   v-model="forForMailSender.email"
+                  :rules= "[rules.required_mail, rules.email]"
                   name="email"
                   label="Почта"
                   required
@@ -55,6 +45,7 @@
 
               <v-text-field
                   v-model="forForMailSender.position"
+                  :rules= "[rules.required_position]"
                   name="position"
                   label="Должность"
                   required
@@ -62,6 +53,7 @@
 
               <v-text-field
                   v-model="forForMailSender.company"
+                  :rules= "[rules.required_company]"
                   name="company"
                   label="Компания"
                   required
@@ -97,8 +89,9 @@
               </v-checkbox>
 
               <v-btn
-                  class="mr-4"
                   type="submit"
+                  class="mr-4"
+                  color="success"
               >
                 отправить
               </v-btn>
@@ -112,14 +105,6 @@
           rounded
 
       >
-        <template slot="progress">
-          <v-progress-linear
-              color="deep-purple"
-              height="10"
-              indeterminate
-          ></v-progress-linear>
-        </template>
-
         <v-img
             max-width="auto"
             :src="item.imageRef"
@@ -192,12 +177,10 @@
 <script>
 import emailjs from 'emailjs-com';
 import '@mdi/font/css/materialdesignicons.css'
-import Snowf from 'vue-snowf';
 
 export default{
   name: 'AppCenter',
   components:{
-    Snowf
   },
   data: () => ({
     forForMailSender: {
@@ -207,8 +190,23 @@ export default{
       position: '',
       company: '',
       message: '',
-      conference: ''
+      conference: '',
     },
+    rules:{
+        required_mail: values => !!values || 'Введите почту',
+        required_fio: values => !!values || 'Введите ФИО',
+        required_phone: values => !!values || 'Введите номер',
+        required_position: values => !!values || 'Введите должность',
+        required_company: values => !!values || 'Введите компанию',
+        email: values =>{
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          return pattern.test(values) || 'Почта введена некорректно'
+      },
+      mobile: values =>{
+          const pattern = /^(\+7|7|8)?[\s-]?\(?[489][0-9]{2}\)?[\s-]?[0-9]{3}[\s-]?[0-9]{2}[\s-]?[0-9]{2}$/gm
+          return pattern.test(values) || "Номер телефона не корректен"
+      }
+  },
     items: [
       {
         formIsOpen: false,
@@ -309,12 +307,6 @@ export default{
                 });
           }
       )
-
-    },
-    numberRule: v  => {
-      if (!v.trim()) return true;
-      if (!isNaN(parseFloat(v)) && v >= 7 && v <= 99999999999) return true;
-      return 'Номер с 8';
     }
   }
 }
@@ -340,10 +332,6 @@ export default{
 .card{
   background-color: rgba(20, 23, 19, 0.05) !important;
   color: rgba(0,0,0,.87) !important;
-}
-.snows{
-  z-index: 1 !important;
-  pointer-events: none !important;
 }
 </style>
 
