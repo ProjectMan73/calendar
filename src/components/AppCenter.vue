@@ -165,6 +165,7 @@
               color="blue"
               text
               @click="item.formIsOpen = true; forForMailSender.conference = item.name"
+              :disabled="item.disable == 2"
           >
             Зарегистрироваться
           </v-btn>
@@ -218,19 +219,20 @@ export default{
               link: 'https://www.imperialhotel.ru/',
             },
           date: '27 января 2022 г.',
+          disable: 2,
           meetupPlan: './Управление корпоративным автопарком в России 2022.pdf',
-          status: 'Программа мероприятия',
+          status: 'Программа мероприятия 2022г.',
           video: 'https://www.youtube.com/watch?v=xKycP6HbS5c&t'
       }, {
         formIsOpen: false,
         name: 'Управление корпоративными финансами в России 2022 г.',
-        imageRef: require('../assets/Finance.webp'),
+        imageRef: require('../assets/Finances.webp'),
         place:
             {
               title: 'Отель Арарат Парк Хаятт',
               link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
-        date: '24 марта 2022 г.',
+        date: '22 марта 2022 г.',
         meetupPlan: './Управление корпоративными финансами в России 2021.pdf',
         status: 'Программа мероприятия 2021г.',
         video: 'https://www.youtube.com/watch?v=IRPXw6WY-uU&t'
