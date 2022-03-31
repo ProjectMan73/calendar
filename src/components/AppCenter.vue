@@ -233,9 +233,10 @@ export default{
               link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
         date: '22 марта 2022 г.',
-        meetupPlan: './Управление корпоративными финансами в России 2021.pdf',
-        status: 'Программа мероприятия 2021г.',
-        video: 'https://www.youtube.com/watch?v=IRPXw6WY-uU&t'
+        disable: 2,
+        meetupPlan: './Управление корпоративными финансами в России 2022.pdf',
+        status: 'Программа мероприятия 2022г.',
+        video: 'https://youtu.be/ACbwaf10xNQ'
       }, {
         formIsOpen: false,
         name: 'Управление персоналом в России 2022 г.',
@@ -245,7 +246,7 @@ export default{
               title: 'Отель Арарат Парк Хаятт',
               link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
             },
-        date: '19 мая 2022 г.',
+        date: '18 мая 2022 г.',
         meetupPlan: './Управление персоналом в России 2021(1).pdf',
         status: 'Программа мероприятия 2021г.',
         video: 'https://www.youtube.com/watch?v=sRe6qB8hYZo&t'
