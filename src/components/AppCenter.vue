@@ -252,6 +252,20 @@ export default{
         video: 'https://www.youtube.com/watch?v=sRe6qB8hYZo&t'
       }, {
         formIsOpen: false,
+        disable: 0,
+        name: 'Управление корпоративным правом в России 2022 г.',
+        imageRef: require('../assets/Pravo.webp'),
+        place:
+            {
+              title: 'Отель Ритц Карлтон',
+              link: 'https://www.ritzcarlton.com/ru/hotels/europe/moscow',
+            },
+        date: '15 июля 2022 г.',
+        meetupPlan: './Управление корпоративным правом в России 2021.pdf',
+        status: 'Программа мероприятия 2021г.',
+        video: 'https://www.youtube.com/watch?v=Xgiej0-WZyM&t',
+      }, {
+        formIsOpen: false,
         name: 'Управление информационными технологиями в России 2022 г.',
         imageRef: require('../assets/InfoTech.webp'),
         place:
@@ -263,20 +277,6 @@ export default{
         meetupPlan: './Управление информационными технологиями в России 2021.pdf',
         status: 'Программа мероприятия 2021г.',
         video: 'https://www.youtube.com/watch?v=ib1aj-oHXUE&t'
-      }, {
-        formIsOpen: false,
-        disable: 0,
-        name: 'Управление корпоративным правом в России 2022 г.',
-        imageRef: require('../assets/Pravo.webp'),
-        place:
-            {
-              title: 'Отель Арарат Парк Хаятт',
-              link: 'https://www.hyattrestaurants.com/en/dining/russia/moscow',
-            },
-        date: '06 октября 2022 г.',
-        meetupPlan: './Управление корпоративным правом в России 2021.pdf',
-        status: 'Программа мероприятия 2021г.',
-        video: 'https://www.youtube.com/watch?v=Xgiej0-WZyM&t',
       }, {
         formIsOpen: false,
         disable: 1,
